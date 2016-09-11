@@ -52,7 +52,7 @@ namespace DataStructures
             currentNode = node;
         }
 
-        //Delete Method
+        //Delete Method at an index
         public bool Delete(int index)
         {
             if (index == 1)
