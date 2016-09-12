@@ -32,6 +32,22 @@ namespace DataStructures
 
         //current Node
         private Node currentNode;
+
+        private Node PreviousNode;
+        public void AddFirst(object item)
+        {
+
+            if (head == null)
+            {
+                currentNode = PreviousNode = new Node() { Data = item };
+            }
+            else
+            {
+                PreviousNode = PreviousNode.Next = new Node() { Data = item };
+            }
+            size++;
+        }
+
         //Add a new Node to my list
         public void Add(object item)
         {
@@ -52,13 +68,34 @@ namespace DataStructures
             currentNode = node;
         }
 
+        public void AddLast(object item)
+        {
+            Node newNode = new Node();
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                currentNode = head;
+                while (currentNode != null)
+                {
+                    PreviousNode = currentNode;
+                    currentNode = currentNode.Next;
+                }
+                PreviousNode.Next = newNode;
+            }
+            newNode.Next = null;
+            size++;
+        }
+
         //Delete Method
         public bool Delete(int index)
         {
             if (index == 1)
             {
                 head = null;
-                currentNode = null;
+                PreviousNode = null;
                 return true;
             }
             if (index > 1 && index < size)
@@ -77,6 +114,7 @@ namespace DataStructures
                     tempNode = tempNode.Next;
                 }
             }
+            size--;
             return false;
         }
 

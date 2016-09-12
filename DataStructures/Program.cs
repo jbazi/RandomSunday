@@ -34,18 +34,43 @@ namespace DataStructures
         static void Main(string[] args)
         {
             MyLinkedList myList = new MyLinkedList();
+            MyStack myStack = new MyStack();
+            Console.WriteLine("________Start Of Stack class_______");
+            myStack.Push(10);
+            myStack.Push(20);
+            myStack.Push(30);
+            myStack.Push(40);
+            myStack.Push("numbers");
+            myStack.Display();
+            Console.WriteLine("Removing an item from my stack - LIFO");
+            myStack.Pop();
+            Console.WriteLine("After the pop");
+            myStack.Display();
+            Console.WriteLine("There are "+ myStack.getSize + " items in your stack"); 
+            Console.WriteLine("________End Of Stack class_______\n");
+            Console.WriteLine("Returning the last item");
+            Console.WriteLine(myStack.Peek());
+
+            Console.WriteLine("________Start Of Linked List class_______");
             myList.Add("A");
             myList.Add(20);
             myList.Add("Time to go");
             myList.Add("H");
+            Console.WriteLine(myList.Count);
             myList.ListNodes();
             Console.WriteLine("Now time to delete @ position 2");
             myList.Delete(2);
             myList.ListNodes();
             Console.WriteLine(myList.Count);
-
             Node first = new Node{Data = 3};
             Node Second = new Node{Data = 5};
+            Console.WriteLine("_________Adding item at the end of the list_________");
+            myList.AddLast("Z");
+            Console.WriteLine(myList.Count);
+            myList.ListNodes();
+            Console.WriteLine("_________Adding item at the beginning of the list_________");
+            myList.AddFirst(100);
+            myList.ListNodes();
 
             //point first to second node
             first.Next = Second;
@@ -59,6 +84,8 @@ namespace DataStructures
             PrintList(first);
             Console.WriteLine("____________Printing previous items_________");
             PrintPreviousItems(Third);
+            
+            Console.WriteLine("End Of Linked List class_______");
             Console.ReadKey();
         }
 
