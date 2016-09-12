@@ -68,6 +68,7 @@ namespace DataStructures
             currentNode = node;
         }
 
+<<<<<<< HEAD
         public void AddLast(object item)
         {
             Node newNode = new Node();
@@ -90,6 +91,9 @@ namespace DataStructures
         }
 
         //Delete Method
+=======
+        //Delete Method at an index
+>>>>>>> e19425eef7993d720351cae71275242d54f0ac4d
         public bool Delete(int index)
         {
             if (index == 1)
